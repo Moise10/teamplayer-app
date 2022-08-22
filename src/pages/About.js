@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 import AboutCard from '../components/AboutCard'
 import styled from 'styled-components'
-import bgPattern_3 from '../assets/bg-pattern-home-1.svg';
-import bgPattern_1 from '../assets/bg-pattern-home-2.svg';
-import bgPattern_2 from '../assets/bg-pattern-home-3.svg';
-import bgPattern_5 from '../assets/bg-pattern-home-5.svg';
-import bgPattern_6 from '../assets/bg-pattern-home-4-about-3.svg';
-import bgPattern_4 from '../assets/bg-pattern-home-6-about-5.svg';
-import bgPattern_7 from '../assets/bg-pattern-about-1-mobile-nav-1.svg';
-import Aden from '../assets/avatar-aden.jpg'
-import Christian from '../assets/avatar-christian.jpg'
-import Cruz from '../assets/avatar-cruz.jpg'
-import Drake from '../assets/avatar-drake.jpg'
-import Griffin from '../assets/avatar-griffin.jpg'
-import Nikita  from '../assets/avatar-nikita.jpg'
-import Gatgets  from '../assets/logo-gadgets-now.png'
-import JakartaPost  from '../assets/logo-jakarta-post.png'
-import TechRadar  from '../assets/logo-tech-radar.png'
-import Guardian  from '../assets/logo-the-guardian.png'
-import Verge  from '../assets/logo-the-verge.png'
+import {
+	bgPattern_1,
+	bgPattern_2,
+	bgPattern_3,
+	bgPattern_4,
+	bgPattern_5,
+	bgPattern_6,
+	JakartaPost,
+	TechRadar,
+	Guardian,
+	Verge,
+	Gatgets,
+	Nikita,
+	Griffin,
+	Drake,
+	Cruz,
+	Christian,
+	Aden,
+	bgPattern_7,
+} from './index';
+	
+
 import {NavLink} from 'react-router-dom'
 
 
@@ -26,7 +30,7 @@ import {NavLink} from 'react-router-dom'
 
 function About() {
 
-  const Data = [
+	const Data = [
 		{
 			imgUrl: `${Nikita}`,
 			name: 'Nikita Marks',

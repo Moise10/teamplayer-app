@@ -1,42 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-import kady from '../assets/avatar-kady.jpg'
-import Aiysha from '../assets/avatar-aiysha.jpg'
-import Arthur from '../assets/avatar-arthur.jpg'
 import {NavLink} from 'react-router-dom'
-import bgPattern_3 from '../assets/bg-pattern-home-1.svg'
-import bgPattern_1 from '../assets/bg-pattern-home-2.svg'
-import bgPattern_2 from '../assets/bg-pattern-home-3.svg'
-import bgPattern_5 from '../assets/bg-pattern-home-5.svg'
-import bgPattern_6 from '../assets/bg-pattern-home-4-about-3.svg'
-import bgPattern_4 from '../assets/bg-pattern-home-6-about-5.svg'
-import ChartIcon from '../assets/icon-chart.svg'
-import CogIcon from '../assets/icon-cog.svg'
-import PersonIcon from '../assets/icon-person.svg'
-import CrossIcon from '../assets/icon-cross.svg'
-
+import {bgPattern_1, bgPattern_2, 
+	bgPattern_4, bgPattern_5, bgPattern_6, 
+	ChartIcon, CogIcon, PersonIcon, Aiysha, Arthur, kady} from './index'
+	
 
 
 function Home() {
   return (
 		<>
-			<HomeContainer background={bgPattern_1}>
+			<HomeContainer>
 				<HeroSection>
 					<h1>
 						Find the best <span>talent</span>
 					</h1>
-					<div className="">
-						<p>
+					<p>
 							Finding the right people and building high performing teams can be
 							hard. Most companies aren’t tapping into the abundance of global
 							talent. We’re about to change that.
-						</p>
-					</div>
+					</p>
+					<img src={bgPattern_1} alt="" />
 				</HeroSection>
-
 			</HomeContainer>
 
-			<Main background={bgPattern_2}>
+			<Main>
 				<MainContent>
 					<h3>Build & manage distributed teams like no one else.</h3>
 					<FlexContainer>
@@ -71,11 +59,12 @@ function Home() {
 							</div>
 						</div>
 					</FlexContainer>
+					<MainImg1 src={bgPattern_2} alt="" />
 				</MainContent>
 			</Main>
 
-			<Testimonial background={bgPattern_6}>
-				<TestimonialContent background={bgPattern_5}>
+			<Testimonial>
+				<TestimonialContent>
 					<h1>
 						Delivering real results for top companies. Some of our{' '}
 						<span>success stories.</span>
@@ -113,12 +102,15 @@ function Home() {
 						</div>
 					</Grid>
 				</TestimonialContent>
+				<TestimonialBg1 src={bgPattern_5} alt="" />
+				<TestimonialBg2 src={bgPattern_6} alt="" />
 			</Testimonial>
 
-			<CallToAction background={bgPattern_4}>
+			<CallToAction >
 				<CallToActionContent>
 					<h1>Ready to get started?</h1>
 					<$Link to={'/contact'}>contact us</$Link>
+					<img src={bgPattern_4} alt="" />
 				</CallToActionContent>
 			</CallToAction>
 		</>
@@ -127,34 +119,96 @@ function Home() {
 
 const HomeContainer = styled.div`
 	width: 100%;
-	background-color: #2c6269;
+	background-color: #014e56;
 	padding: 2rem 1.6rem;
 	background-image: url(${({ background }) => background});
-  background-repeat: no-repeat;
-  background-position: bottom center;
-
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	position: relative;
 `;
 
 const HeroSection = styled.div`
 	color: #fff;
 	text-align: center;
+	max-width: 989px;
+	margin: 0 auto;
 
 	h1 {
-		font-size: 4rem;
+		font-size: 2.3rem;
 		line-height: 1;
+		font-weight: bold;
+
 		span {
 			color: #f67e7e;
 		}
 	}
 
-  p{
-    text-align: center;
-    padding-bottom: 8rem;
-  }
+	p {
+		text-align: center;
+		padding-bottom: 8rem;
+	}
+
+	img {
+		position: absolute;
+		bottom: 0;
+		left: 0.4rem;
+	}
 
 	@media (min-width: 768px) {
-		max-width: 70%;
-		margin: 0 auto;
+		h1 {
+			font-size: 5.3rem;
+			line-height: 1;
+			font-weight: bold;
+			line-height: 1;
+			margin-bottom: 0;
+
+			span {
+				color: #f67e7e;
+			}
+		}
+
+		p {
+			text-align: center;
+			margin-bottom: 5rem;
+			font-size: 1.06rem;
+		}
+
+		img {
+			bottom: 0;
+			left: 30%;
+		}
+	}
+
+	@media (min-width: 850px) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 20rem;
+		margin-bottom: 4rem;
+		gap: 2rem;
+
+		h1 {
+			font-size: 3.6rem;
+			flex: 0.5;
+			padding: 0;
+			margin: 0;
+			span {
+				color: #f67e7e;
+			}
+		}
+
+		p {
+			text-align: left;
+			font-size: 1.3rem;
+			flex: 0.5;
+			padding: 0;
+			margin: 0;
+		}
+
+		img {
+			bottom: 0;
+			left: 59%;
+		}
 	}
 `;
 
@@ -162,22 +216,47 @@ const Main = styled.div`
 	width: 100%;
 	background-color: #012f34;
 	padding: 2rem 1.6rem;
-	background-image: url(${({ background }) => background});
-  background-repeat: no-repeat;
-  background-position: top right -48%;
+	position: relative;
+	overflow: hidden;
 `;
 
 const MainContent = styled.div`
+	max-width: 989px;
+	margin: 0 auto;
 	h3 {
 		text-align: left;
 		color: #fff;
-    font-size: 2.5rem;
-    line-height: 1;
-    padding-right: 8rem;
+		font-size: 2.5rem;
+		line-height: 1;
+		padding-right: 8rem;
 	}
 	@media (min-width: 768px) {
-		max-width: 70%;
-		margin: 0 auto;
+
+		h3 {
+			text-align: left;
+			color: #fff;
+			font-size: 2rem;
+			line-height: 1;
+			padding-top: 5rem;
+		}
+	}
+
+	@media (min-width: 850px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		height: 30rem;
+		h3 {
+			text-align: left;
+			color: #fff;
+			font-size: 2.3rem;
+			line-height: 1;
+			padding-top: 0;
+			padding-right: 0;
+			flex: 1;
+			margin-top: 0;
+		}
 	}
 `;
 
@@ -186,6 +265,7 @@ const FlexContainer = styled.div`
 
 	p {
 		color: #f67e7e;
+		text-align: center;
 	}
 
 	span {
@@ -195,18 +275,82 @@ const FlexContainer = styled.div`
 	img {
 		margin-top: 2rem;
 	}
+
+	@media (min-width: 768px) {
+		div {
+			display: flex;
+			gap: 2rem;
+			margin-bottom: 0.4rem;
+			div {
+				flex-direction: column;
+				display: flex;
+				text-align: left;
+				gap: 0;
+				p {
+					text-align: left;
+				}
+			}
+			img {
+				margin-top: 0;
+				object-fit: contain;
+			}
+		}
+	}
+
+	@media (min-width: 850px) {
+		flex: 1;
+		div {
+			display: flex;
+			gap: 1rem;
+			margin-bottom: 0.4rem;
+			div {
+				flex-direction: column;
+				display: flex;
+				text-align: left;
+				gap: 0;
+				p {
+					font-size: 0.8rem;
+				}
+				span {
+					font-size: 0.9rem;
+				}
+			}
+			img {
+				width: 3rem;
+				height: 3rem;
+			}
+		}
+	}
 `;
+
+
+  const MainImg1 = styled.img`
+	  position: absolute;
+		top: 0;
+		left: 73%;
+		overflow: hidden;
+
+		@media (min-width: 850px) {
+			left: 90%;
+			right: 0;
+			top: 56%
+		}
+	`;
+
 
 const Testimonial = styled.div`
-	width: 100%;
-	background-color: #2c6269;
+	background-color: #004047;
 	padding: 2rem 1.6rem;
-	background-image: url(${({ background }) => background});
-	background-repeat: no-repeat;
-	background-position: top left;
+	position: relative;
+	overflow: hidden;
 `;
 
+
 const TestimonialContent = styled.div`
+	overflow: hidden;
+	max-width: 989px;
+	margin: 0 auto;
+
 	h1 {
 		text-align: center;
 		color: #fff;
@@ -218,18 +362,33 @@ const TestimonialContent = styled.div`
 		}
 	}
 	@media (min-width: 768px) {
-		max-width: 70%;
-		margin: 0 auto;
 	}
 `;
 
+const TestimonialBg1 = styled.img`
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	max-width: 100%;
+`;
+
+const TestimonialBg2 = styled.img`
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+`;
+
+
+
 const Grid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 	text-align: center;
 	justify-content: center;
 	align-items: center;
   padding-bottom: 8rem;
+	gap: 2rem;
 
 	p {
 		color: #fff;
@@ -256,17 +415,19 @@ const CallToAction = styled.div`
 	width: 100%;
 	background-color: #f67e7e;
 	padding: 2rem 1.6rem;
-	background-image: url(${({ background }) => background});
-	background-repeat: no-repeat;
-	background-position: bottom left;
+	position: relative;
+	overflow: hidden;
 `;
 
 const CallToActionContent = styled.div`
+	max-width: 989px;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding-bottom: 4rem;
+	min-height: 4rem;
+	overflow: hidden;
 
 	h1 {
 		font-size: 2.2rem;
@@ -274,11 +435,20 @@ const CallToActionContent = styled.div`
 		color: #004047;
 	}
 
+	img {
+		max-width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
 	@media (min-width: 768px) {
-		max-width: 70%;
-		margin: 0 auto;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 `;
+
+
 
 
 const $Link = styled(NavLink)`

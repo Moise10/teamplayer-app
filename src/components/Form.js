@@ -76,7 +76,9 @@ function Form() {
 
 
 const FormStyle = styled.form`
-  
-`
+	width: 100%;
+	background-color: #2c6269;
+	padding: 2rem 1.6rem;
+`;
 
 export default Form
