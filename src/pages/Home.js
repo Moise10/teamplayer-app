@@ -11,7 +11,7 @@ function Home() {
   return (
 		<>
 			<HomeContainer>
-				<HeroSection>
+				<HeroSection >
 					<h1>
 						Find the best <span>talent</span>
 					</h1>
@@ -130,7 +130,7 @@ const HomeContainer = styled.div`
 const HeroSection = styled.div`
 	color: #fff;
 	text-align: center;
-	max-width: 989px;
+	max-width: 900px;
 	margin: 0 auto;
 
 	h1 {
@@ -188,10 +188,11 @@ const HeroSection = styled.div`
 		gap: 2rem;
 
 		h1 {
-			font-size: 3.6rem;
+			font-size: 4.6rem;
 			flex: 0.5;
 			padding: 0;
 			margin: 0;
+			text-align: left;
 			span {
 				color: #f67e7e;
 			}
@@ -221,7 +222,7 @@ const Main = styled.div`
 `;
 
 const MainContent = styled.div`
-	max-width: 989px;
+	max-width: 900px;
 	margin: 0 auto;
 	h3 {
 		text-align: left;
@@ -231,7 +232,6 @@ const MainContent = styled.div`
 		padding-right: 8rem;
 	}
 	@media (min-width: 768px) {
-
 		h3 {
 			text-align: left;
 			color: #fff;
@@ -257,6 +257,7 @@ const MainContent = styled.div`
 			flex: 1;
 			margin-top: 0;
 		}
+		
 	}
 `;
 
@@ -348,7 +349,7 @@ const Testimonial = styled.div`
 
 const TestimonialContent = styled.div`
 	overflow: hidden;
-	max-width: 989px;
+	max-width: 900px;
 	margin: 0 auto;
 
 	h1 {
@@ -420,7 +421,7 @@ const CallToAction = styled.div`
 `;
 
 const CallToActionContent = styled.div`
-	max-width: 989px;
+	max-width: 680px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -458,6 +459,7 @@ const $Link = styled(NavLink)`
 	padding: 5px 15px;
 	border: 2px solid #004047;
 	border-radius: 4rem;
+
 `;
 
 

@@ -1,58 +1,67 @@
 import React from 'react'
 import Form from '../components/Form'
+import ContactHero from '../components/ContactHero';
 import styled from 'styled-components'
-import {
-	ChartIcon,
-	CogIcon,
-	PersonIcon,
-	BgContact,
-} from './index';
+import { ChartIcon, CogIcon, PersonIcon, BgContact } from './index';
+
 
 function Contact() {
   return (
-		<>
-			<ContactContainer background={BgContact}>
-				<ContactMain>
-					<div className="">
-						<h1>Contact</h1>
-						<h2>Ask us about</h2>
-						<div>
-							<div>
-								<img src={PersonIcon} alt="Person logo" />
-								<h3>The quality of our talent network</h3>
-							</div>
-							<div>
-								<img src={CogIcon} alt="Person logo" />
-								<h3>Usage & implementation of our software</h3>
-							</div>
-							<div>
-								<img src={ChartIcon} alt="Person logo" />
-								<h3>How we help drive innovation</h3>
-							</div>
-						</div>
-					</div>
-				</ContactMain>
-			</ContactContainer>
-			<Form />
-		</>
+		<ContactStyles>
+			<ImgTop src={BgContact} alt="" />
+
+			<div className="">
+				<Form />
+			</div>
+			<ImgBottom src={BgContact} alt="" />
+		</ContactStyles>
 	);
 }
 
-const ContactContainer = styled.div`
+
+const ContactStyles = styled.div`
 	width: 100%;
-	background-color: #2c6269;
-	padding: 2rem 1.6rem;
-	background-image: url(${({ background }) => background});
-	background-repeat: no-repeat;
-	background-position: bottom right;
+	background-color: #014e56;
+	padding-top: 1rem;
+	position: relative;
+	overflow: hidden;
+
+	@media (min-width: 900px) {
+		div {
+			margin: 0 auto;
+			max-width: 900px;
+			div {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+			}
+		}
+	}
+
+
 `;
 
-const ContactMain = styled.div`
-  
-`
 
-const AskAbout = styled.div`
-  display
-`
+	const ImgBottom = styled.img`
+		position: absolute;
+		bottom: 0;
+		right: -90px;
+		margin-top: 6rem;
+	`;
+
+	const ImgTop = styled.img`
+	position: absolute;
+	top: 0;
+	left: -6rem;
+
+	@media (max-width: 773px){
+		display: none;
+	}
+
+`;
+
+
+
+
 
 export default Contact

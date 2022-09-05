@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import AboutCard from '../components/AboutCard'
 import styled from 'styled-components'
 import {
-	bgPattern_1,
+	BgContact,
 	bgPattern_2,
-	bgPattern_3,
 	bgPattern_4,
-	bgPattern_5,
 	bgPattern_6,
 	JakartaPost,
 	TechRadar,
@@ -73,7 +71,8 @@ function About() {
 
   return (
 		<>
-			<AboutContainer background={bgPattern_7}>
+			<AboutContainer>
+				<HeroImg src={bgPattern_7} alt="" />
 				<HeroSection>
 					<h1>About</h1>
 					<div className="">
@@ -88,7 +87,9 @@ function About() {
 				</HeroSection>
 			</AboutContainer>
 
-			<GridContainer background={bgPattern_6}>
+			<GridContainer>
+				<ImgBottomGrid src={bgPattern_6} alt="" />
+				<h1>Meet the directors</h1>
 				<Grid>
 					{Data.map((item) => (
 						<AboutCard
@@ -100,22 +101,24 @@ function About() {
 						/>
 					))}
 				</Grid>
+				<ImgTopGrid src={BgContact} alt="" />
 			</GridContainer>
 
-			<ClientContainer background={bgPattern_2}>
+			<ClientContainer>
+				<ImgClient src={bgPattern_2} alt="" />
 				<Client>
-          <h1>Some of our clients</h1>
-          <Flex className="">
-            <img src={Verge} alt="" />
-            <img src={JakartaPost} alt="" />
-            <img src={Guardian} alt="" />
-            <img src={TechRadar} alt="" />
-            <img src={Gatgets} alt="" />
-          </Flex>
-        </Client>
+					<h1>Some of our clients</h1>
+					<GridStyle className="">
+						<img src={Verge} alt="" />
+						<img src={JakartaPost} alt="" />
+						<img src={Guardian} alt="" />
+						<img src={TechRadar} alt="" />
+						<img src={Gatgets} alt="" className="gadgets" />
+					</GridStyle>
+				</Client>
 			</ClientContainer>
 
-      <CallToAction background={bgPattern_4}>
+			<CallToAction background={bgPattern_4}>
 				<CallToActionContent>
 					<h1>Ready to get started?</h1>
 					<$Link to={'/contact'}>contact us</$Link>
@@ -132,14 +135,27 @@ const AboutContainer = styled.div`
 	width: 100%;
 	background-color: #2c6269;
 	padding: 2rem 1.6rem;
-	background-image: url(${({ background }) => background});
-  background-repeat: no-repeat;
-  background-position: bottom -30% right -54%;
+	position: relative;
+	overflow: hidden;
+`;
+
+const HeroImg = styled.img`
+	position: absolute;
+	bottom: -20%;
+	right: -25%;
+
+	@media (min-width: 768px) {
+		bottom: -40%;
+		right: -5%;
+	}
 `;
 
 const HeroSection = styled.div`
 	color: #fff;
 	text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+	min-height: 15rem;
 
 	h1 {
 		font-size: 4rem;
@@ -151,61 +167,138 @@ const HeroSection = styled.div`
 
 	p {
 		text-align: center;
-		padding-bottom: 8rem;
+		padding-bottom: 4rem;
 	}
 
 	@media (min-width: 768px) {
-		max-width: 70%;
-		margin: 0 auto;
+		div {
+			p {
+				font-size: 1.2rem;
+			}
+		}
+	}
+	@media (min-width: 468px) and (max-width: 900px) {
+		div {
+			p {
+				font-size: 1rem;
+				padding: 0 4rem;
+				padding-bottom: 6rem;
+			}
+		}
+	}
+
+	@media (min-width: 900px) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6rem;
+		h1 {
+			flex: 0.5;
+		}
+		div {
+			p {
+				flex: 0.5;
+				text-align: left;
+				padding-bottom: 0;
+			}
+		}
 	}
 `;
 
 const GridContainer = styled.div`
-	
+	width: 100%;
 	background-color: #004047;
 	padding: 8rem 1.6rem;
-	background-image: url(${({ background }) => background});
-	background-repeat: no-repeat;
-	background-position: bottom right;
+	position: relative;
+	overflow: hidden;
+
+	h1 {
+		text-align: center;
+		color: #fff;
+		margin-bottom: 2.8rem;
+	}
 `;
 
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 	gap: 2rem;
-	@media (min-width: 768px) {
-		max-width: 70%;
-		margin: 0 auto;
-	}
+	max-width: 900px;
+	margin: 0 auto;
 `;
+
+const ImgTopGrid = styled.img`
+  position: absolute;
+	top: -5.5%;
+	left: -16%;
+
+`
+const ImgBottomGrid = styled.img`
+	position: absolute;
+	bottom: 0;
+	right: 0;
+`;
+
+
+
+
 
 const ClientContainer = styled.div`
 	width: 100%;
 	background-color: #012f34;
 	padding: 2rem 1.6rem;
-  background-image: url(${({background}) => background});
-  background-repeat: no-repeat;
-  background-position: top -40% left -55%;
+	position: relative;
+	overflow: hidden;
+	padding-top: 4rem;
 `;
 
 const Client = styled.div`
-  text-align: center;
-  color: #fff;
-  padding-bottom: 4rem;
-`
+	text-align: center;
+	color: #fff;
+	padding-bottom: 4rem;
+	max-width: 900px;
+	margin: 0 auto;
+`;
 
-const Flex = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
+const ImgClient = styled.img`
+	position: absolute;
+	top: -20%;
+	left: -20%;
+	@media (min-width: 768px) {
+		top: -47%;
+		left: 0;
+	}
+`;
 
-  img {
-    width: 12rem;
-    height: 2rem;
-  }
-`
+const GridStyle = styled.div`
+	text-align: center;
+
+	.gadgets {
+		width: 45%;
+		height: 5%;
+	}
+	img {
+		width: 65%;
+		height: 5%;
+		margin-bottom: 3rem;
+	}
+
+	@media (min-width: 768px) {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		place-items: center;
+
+		.gadgets {
+			width: 80%;
+			height: 80%;
+		}
+		img {
+			width: 80%;
+			height: 80%;
+			margin-bottom: 0;
+		}
+	}
+`;
 
 
 const CallToActionContent = styled.div`
